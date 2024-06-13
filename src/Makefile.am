@@ -8,3 +8,7 @@ mfoc_SOURCES = crapto1.c crypto1.c mfoc.c mifare.c nfc-utils.c
 mfoc_LDADD   = @libnfc_LIBS@
 
 dist_man_MANS = mfoc.1
+
+if OS_WIN32
+  AM_CFLAGS += -I@srcdir@/win32
+endif

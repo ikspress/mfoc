@@ -37,6 +37,17 @@ AC_CHECK_FUNCS([memset])
 # C99
 CFLAGS="$CFLAGS -std=c99"
 
+case "${host}" in
+  *-cygwin* | *-mingw*)
+  os_win32=yes
+  ;;
+  *)
+  os_win32=no
+  ;;
+esac
+
+AM_CONDITIONAL([OS_WIN32], [test "x$os_win32" = "xyes"])
+
 AC_CONFIG_FILES([Makefile
                  src/Makefile])
 AC_OUTPUT
